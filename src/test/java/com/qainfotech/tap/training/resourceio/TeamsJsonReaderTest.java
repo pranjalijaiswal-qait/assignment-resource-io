@@ -24,7 +24,7 @@ public class TeamsJsonReaderTest {
     public void getListOfIndividuals_should_return_array_list_of_all_individual_objects()
             throws IOException{
         
-        assertThat(teamReader.getListOfIndividuals().size()).isEqualTo(5);
+       assertThat(teamReader.getListOfIndividuals().size()).isEqualTo(5);
         assertThat(teamReader.getListOfIndividuals().get(0).getName())
                 .isEqualTo("John Doe");
         assertThat(teamReader.getListOfIndividuals().get(4).getId())

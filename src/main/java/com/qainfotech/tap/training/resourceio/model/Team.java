@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import com.qainfotech.tap.training.resourceio.TeamsJsonReader;
+
 /**
  *
  * @author Ramandeep RamandeepSingh AT QAInfoTech.com
@@ -13,9 +15,13 @@ public class Team {
     private final String name;
     private final Integer id;
     private final List<Individual> members;
+    TeamsJsonReader ob=new TeamsJsonReader();
+    List<Individual> activeteam=new ArrayList<Individual>();
     
     public Team(Map<String, Object> teamMap){
-        throw new UnsupportedOperationException("Not implemented.");
+    	this.name=(String)teamMap.get("name");
+		this.id=Integer.parseInt((String)teamMap.get("id").toString());
+		this.members=(List<Individual>)teamMap.get("members");
     }
     
     /**
@@ -50,8 +56,11 @@ public class Team {
      * 
      * @return 
      */
-    public List<Individual> getActiveMembers(){
-        throw new UnsupportedOperationException("Not implemented.");
+    public List<Individual> getActiveMembers()
+    {
+     activeteam=ob.get_active_team();
+     return activeteam;
+     
     }
         
     /**
