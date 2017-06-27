@@ -1,8 +1,11 @@
 package com.qainfotech.tap.training.resourceio.model;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+
+import org.json.simple.JSONArray;
 
 import com.qainfotech.tap.training.resourceio.TeamsJsonReader;
 
@@ -16,12 +19,27 @@ public class Team {
     private final Integer id;
     private final List<Individual> members;
     TeamsJsonReader ob=new TeamsJsonReader();
-    List<Individual> activeteam=new ArrayList<Individual>();
     
     public Team(Map<String, Object> teamMap){
     	this.name=(String)teamMap.get("name");
 		this.id=Integer.parseInt((String)teamMap.get("id").toString());
-		this.members=(List<Individual>)teamMap.get("members");
+		this.members=new ArrayList<Individual>();
+		
+		JSONArray object=(JSONArray)teamMap.get("members");
+		List<Individual> list=ob.getListOfIndividuals();
+		Iterator<Individual> iterator=list.iterator();
+		while(iterator.hasNext())
+		{
+			Individual ind=iterator.next();
+			for(int i=0;i<object.size();i++)
+			{
+				if(ind.getId()==Integer.parseInt(object.get(i).toString()))
+				{
+					this.members.add(ind);
+				}
+			}
+			
+		}
     }
     
     /**
@@ -58,8 +76,19 @@ public class Team {
      */
     public List<Individual> getActiveMembers()
     {
-     activeteam=ob.get_active_team();
-     return activeteam;
+    	
+    	List<Individual> activeList=new ArrayList<Individual>();
+    	  Iterator<Individual> itr=this.members.iterator();
+          while(itr.hasNext()){
+
+              Individual individual=itr.next();
+              if(individual.isActive())
+              {
+                  activeList.add(individual);
+              }
+
+          }
+           return activeList;
      
     }
         
@@ -68,7 +97,19 @@ public class Team {
      * 
      * @return 
      */
-    public List<Individual> getInactiveMembers(){
-        throw new UnsupportedOperationException("Not implemented.");
+    public List<Individual> getInactiveMembers()
+    {
+     List<Individual> nonactiveList=new ArrayList<Individual>();
+  	  Iterator<Individual> itr=this.members.iterator();
+        while(itr.hasNext()){
+
+            Individual individual=itr.next();
+            if(!(individual.isActive()))
+            {
+                nonactiveList.add(individual);
+            }
+
+        }
+         return nonactiveList;
     }
 }

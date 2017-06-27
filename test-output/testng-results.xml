@@ -1,110 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="2" ignored="0" total="10" passed="8">
+<testng-results skipped="0" failed="0" ignored="0" total="10" passed="10">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="140" started-at="2017-06-27T09:11:08Z" finished-at="2017-06-27T09:11:09Z">
+  <suite name="Default suite" duration-ms="134" started-at="2017-06-27T12:30:54Z" finished-at="2017-06-27T12:30:54Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="140" started-at="2017-06-27T09:11:08Z" finished-at="2017-06-27T09:11:09Z">
+    <test name="Default test" duration-ms="134" started-at="2017-06-27T12:30:54Z" finished-at="2017-06-27T12:30:54Z">
       <class name="com.qainfotech.tap.training.resourceio.TeamsJsonReaderTest">
-        <test-method status="PASS" signature="loadDB()[pri:0, instance:com.qainfotech.tap.training.resourceio.TeamsJsonReaderTest@548b7f67]" name="loadDB" is-config="true" duration-ms="14" started-at="2017-06-27T14:41:08Z" finished-at="2017-06-27T14:41:08Z">
+        <test-method status="PASS" signature="loadDB()[pri:0, instance:com.qainfotech.tap.training.resourceio.TeamsJsonReaderTest@548b7f67]" name="loadDB" is-config="true" duration-ms="14" started-at="2017-06-27T18:00:54Z" finished-at="2017-06-27T18:00:54Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- loadDB -->
-        <test-method status="FAIL" signature="Team_getActiveMembers_should_return_a_list_of_team_members_that_are_active()[pri:0, instance:com.qainfotech.tap.training.resourceio.TeamsJsonReaderTest@548b7f67]" name="Team_getActiveMembers_should_return_a_list_of_team_members_that_are_active" duration-ms="60" started-at="2017-06-27T14:41:08Z" finished-at="2017-06-27T14:41:09Z">
-          <exception class="org.junit.ComparisonFailure">
-            <message>
-              <![CDATA[expected:<[2]> but was:<[0]>]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[org.junit.ComparisonFailure: expected:<[2]> but was:<[0]>
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
-	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
-	at com.qainfotech.tap.training.resourceio.TeamsJsonReaderTest.Team_getActiveMembers_should_return_a_list_of_team_members_that_are_active(TeamsJsonReaderTest.java:107)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
-	at org.testng.TestRunner.privateRun(TestRunner.java:744)
-	at org.testng.TestRunner.run(TestRunner.java:602)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
-	at org.testng.TestNG.runSuites(TestNG.java:1144)
-	at org.testng.TestNG.run(TestNG.java:1115)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:132)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:230)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:76)
-]]>
-            </full-stacktrace>
-          </exception> <!-- org.junit.ComparisonFailure -->
+        <test-method status="PASS" signature="Team_getActiveMembers_should_return_a_list_of_team_members_that_are_active()[pri:0, instance:com.qainfotech.tap.training.resourceio.TeamsJsonReaderTest@548b7f67]" name="Team_getActiveMembers_should_return_a_list_of_team_members_that_are_active" duration-ms="54" started-at="2017-06-27T18:00:54Z" finished-at="2017-06-27T18:00:54Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Team_getActiveMembers_should_return_a_list_of_team_members_that_are_active -->
-        <test-method status="FAIL" signature="Team_getInactiveMembers_should_return_a_list_of_individual_team_members_that_are_inactive()[pri:0, instance:com.qainfotech.tap.training.resourceio.TeamsJsonReaderTest@548b7f67]" name="Team_getInactiveMembers_should_return_a_list_of_individual_team_members_that_are_inactive" duration-ms="3" started-at="2017-06-27T14:41:09Z" finished-at="2017-06-27T14:41:09Z">
-          <exception class="java.lang.UnsupportedOperationException">
-            <message>
-              <![CDATA[Not implemented.]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.UnsupportedOperationException: Not implemented.
-	at com.qainfotech.tap.training.resourceio.model.Team.getInactiveMembers(Team.java:72)
-	at com.qainfotech.tap.training.resourceio.TeamsJsonReaderTest.Team_getInactiveMembers_should_return_a_list_of_individual_team_members_that_are_inactive(TeamsJsonReaderTest.java:114)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
-	at org.testng.TestRunner.privateRun(TestRunner.java:744)
-	at org.testng.TestRunner.run(TestRunner.java:602)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
-	at org.testng.TestNG.runSuites(TestNG.java:1144)
-	at org.testng.TestNG.run(TestNG.java:1115)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:132)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:230)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:76)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.UnsupportedOperationException -->
+        <test-method status="PASS" signature="Team_getInactiveMembers_should_return_a_list_of_individual_team_members_that_are_inactive()[pri:0, instance:com.qainfotech.tap.training.resourceio.TeamsJsonReaderTest@548b7f67]" name="Team_getInactiveMembers_should_return_a_list_of_individual_team_members_that_are_inactive" duration-ms="7" started-at="2017-06-27T18:00:54Z" finished-at="2017-06-27T18:00:54Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Team_getInactiveMembers_should_return_a_list_of_individual_team_members_that_are_inactive -->
-        <test-method status="PASS" signature="getIndividualById_should_return_Individual_object_matching_id()[pri:0, instance:com.qainfotech.tap.training.resourceio.TeamsJsonReaderTest@548b7f67]" name="getIndividualById_should_return_Individual_object_matching_id" duration-ms="6" started-at="2017-06-27T14:41:09Z" finished-at="2017-06-27T14:41:09Z">
+        <test-method status="PASS" signature="getIndividualById_should_return_Individual_object_matching_id()[pri:0, instance:com.qainfotech.tap.training.resourceio.TeamsJsonReaderTest@548b7f67]" name="getIndividualById_should_return_Individual_object_matching_id" duration-ms="2" started-at="2017-06-27T18:00:54Z" finished-at="2017-06-27T18:00:54Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getIndividualById_should_return_Individual_object_matching_id -->
-        <test-method status="PASS" signature="getIndividualById_should_throw_ObjectNotFoundException_for_incorrect_id()[pri:0, instance:com.qainfotech.tap.training.resourceio.TeamsJsonReaderTest@548b7f67]" name="getIndividualById_should_throw_ObjectNotFoundException_for_incorrect_id" duration-ms="2" started-at="2017-06-27T14:41:09Z" finished-at="2017-06-27T14:41:09Z">
+        <test-method status="PASS" signature="getIndividualById_should_throw_ObjectNotFoundException_for_incorrect_id()[pri:0, instance:com.qainfotech.tap.training.resourceio.TeamsJsonReaderTest@548b7f67]" name="getIndividualById_should_throw_ObjectNotFoundException_for_incorrect_id" duration-ms="1" started-at="2017-06-27T18:00:54Z" finished-at="2017-06-27T18:00:54Z">
           <exception class="com.qainfotech.tap.training.resourceio.exceptions.ObjectNotFoundException">
             <message>
               <![CDATA[null Object with null=null not found]]>
             </message>
             <full-stacktrace>
               <![CDATA[com.qainfotech.tap.training.resourceio.exceptions.ObjectNotFoundException: null Object with null=null not found
-	at com.qainfotech.tap.training.resourceio.TeamsJsonReader.getIndividualById(TeamsJsonReader.java:113)
+	at com.qainfotech.tap.training.resourceio.TeamsJsonReader.getIndividualById(TeamsJsonReader.java:106)
 	at com.qainfotech.tap.training.resourceio.TeamsJsonReaderTest.getIndividualById_should_throw_ObjectNotFoundException_for_incorrect_id(TeamsJsonReaderTest.java:69)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
@@ -137,18 +63,18 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getIndividualById_should_throw_ObjectNotFoundException_for_incorrect_id -->
-        <test-method status="PASS" signature="getIndividualByName_should_return_Individual_object_matching_name()[pri:0, instance:com.qainfotech.tap.training.resourceio.TeamsJsonReaderTest@548b7f67]" name="getIndividualByName_should_return_Individual_object_matching_name" duration-ms="2" started-at="2017-06-27T14:41:09Z" finished-at="2017-06-27T14:41:09Z">
+        <test-method status="PASS" signature="getIndividualByName_should_return_Individual_object_matching_name()[pri:0, instance:com.qainfotech.tap.training.resourceio.TeamsJsonReaderTest@548b7f67]" name="getIndividualByName_should_return_Individual_object_matching_name" duration-ms="2" started-at="2017-06-27T18:00:54Z" finished-at="2017-06-27T18:00:54Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getIndividualByName_should_return_Individual_object_matching_name -->
-        <test-method status="PASS" signature="getIndividualByName_should_throw_ObjectNotFoundException_for_incorrect_name()[pri:0, instance:com.qainfotech.tap.training.resourceio.TeamsJsonReaderTest@548b7f67]" name="getIndividualByName_should_throw_ObjectNotFoundException_for_incorrect_name" duration-ms="2" started-at="2017-06-27T14:41:09Z" finished-at="2017-06-27T14:41:09Z">
+        <test-method status="PASS" signature="getIndividualByName_should_throw_ObjectNotFoundException_for_incorrect_name()[pri:0, instance:com.qainfotech.tap.training.resourceio.TeamsJsonReaderTest@548b7f67]" name="getIndividualByName_should_throw_ObjectNotFoundException_for_incorrect_name" duration-ms="2" started-at="2017-06-27T18:00:54Z" finished-at="2017-06-27T18:00:54Z">
           <exception class="com.qainfotech.tap.training.resourceio.exceptions.ObjectNotFoundException">
             <message>
               <![CDATA[null Object with null=null not found]]>
             </message>
             <full-stacktrace>
               <![CDATA[com.qainfotech.tap.training.resourceio.exceptions.ObjectNotFoundException: null Object with null=null not found
-	at com.qainfotech.tap.training.resourceio.TeamsJsonReader.getIndividualByName(TeamsJsonReader.java:137)
+	at com.qainfotech.tap.training.resourceio.TeamsJsonReader.getIndividualByName(TeamsJsonReader.java:130)
 	at com.qainfotech.tap.training.resourceio.TeamsJsonReaderTest.getIndividualByName_should_throw_ObjectNotFoundException_for_incorrect_name(TeamsJsonReaderTest.java:85)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
@@ -181,19 +107,19 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getIndividualByName_should_throw_ObjectNotFoundException_for_incorrect_name -->
-        <test-method status="PASS" signature="getListOfActiveIndividuals_ahould_return_array_list_of_only_active_individual_objects()[pri:0, instance:com.qainfotech.tap.training.resourceio.TeamsJsonReaderTest@548b7f67]" name="getListOfActiveIndividuals_ahould_return_array_list_of_only_active_individual_objects" duration-ms="3" started-at="2017-06-27T14:41:09Z" finished-at="2017-06-27T14:41:09Z">
+        <test-method status="PASS" signature="getListOfActiveIndividuals_ahould_return_array_list_of_only_active_individual_objects()[pri:0, instance:com.qainfotech.tap.training.resourceio.TeamsJsonReaderTest@548b7f67]" name="getListOfActiveIndividuals_ahould_return_array_list_of_only_active_individual_objects" duration-ms="2" started-at="2017-06-27T18:00:54Z" finished-at="2017-06-27T18:00:54Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getListOfActiveIndividuals_ahould_return_array_list_of_only_active_individual_objects -->
-        <test-method status="PASS" signature="getListOfInactiveIndividuals_should_return_array_list_of_only_inactive_individual_objects()[pri:0, instance:com.qainfotech.tap.training.resourceio.TeamsJsonReaderTest@548b7f67]" name="getListOfInactiveIndividuals_should_return_array_list_of_only_inactive_individual_objects" duration-ms="2" started-at="2017-06-27T14:41:09Z" finished-at="2017-06-27T14:41:09Z">
+        <test-method status="PASS" signature="getListOfInactiveIndividuals_should_return_array_list_of_only_inactive_individual_objects()[pri:0, instance:com.qainfotech.tap.training.resourceio.TeamsJsonReaderTest@548b7f67]" name="getListOfInactiveIndividuals_should_return_array_list_of_only_inactive_individual_objects" duration-ms="2" started-at="2017-06-27T18:00:54Z" finished-at="2017-06-27T18:00:54Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getListOfInactiveIndividuals_should_return_array_list_of_only_inactive_individual_objects -->
-        <test-method status="PASS" signature="getListOfIndividuals_should_return_array_list_of_all_individual_objects()[pri:0, instance:com.qainfotech.tap.training.resourceio.TeamsJsonReaderTest@548b7f67]" name="getListOfIndividuals_should_return_array_list_of_all_individual_objects" duration-ms="5" started-at="2017-06-27T14:41:09Z" finished-at="2017-06-27T14:41:09Z">
+        <test-method status="PASS" signature="getListOfIndividuals_should_return_array_list_of_all_individual_objects()[pri:0, instance:com.qainfotech.tap.training.resourceio.TeamsJsonReaderTest@548b7f67]" name="getListOfIndividuals_should_return_array_list_of_all_individual_objects" duration-ms="4" started-at="2017-06-27T18:00:54Z" finished-at="2017-06-27T18:00:54Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getListOfIndividuals_should_return_array_list_of_all_individual_objects -->
-        <test-method status="PASS" signature="getListOfTeams_should_return_a_list_if_Team_object_from_db_json()[pri:0, instance:com.qainfotech.tap.training.resourceio.TeamsJsonReaderTest@548b7f67]" name="getListOfTeams_should_return_a_list_if_Team_object_from_db_json" duration-ms="3" started-at="2017-06-27T14:41:09Z" finished-at="2017-06-27T14:41:09Z">
+        <test-method status="PASS" signature="getListOfTeams_should_return_a_list_if_Team_object_from_db_json()[pri:0, instance:com.qainfotech.tap.training.resourceio.TeamsJsonReaderTest@548b7f67]" name="getListOfTeams_should_return_a_list_if_Team_object_from_db_json" duration-ms="9" started-at="2017-06-27T18:00:54Z" finished-at="2017-06-27T18:00:54Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getListOfTeams_should_return_a_list_if_Team_object_from_db_json -->

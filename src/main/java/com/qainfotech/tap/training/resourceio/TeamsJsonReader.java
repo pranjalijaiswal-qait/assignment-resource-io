@@ -24,9 +24,7 @@ import org.json.simple.parser.ParseException;
 public class TeamsJsonReader{
 	JSONParser parser=new JSONParser();
 	Object obj;
-	
-    
-List<Individual> individualList=new ArrayList<Individual>();
+	List<Individual> individualList=new ArrayList<Individual>();
     List<Individual> active_individuals=new ArrayList<Individual>();
     List<Individual> non_active_individuals=new ArrayList<Individual>();
     List<Team> teamlist=new ArrayList<Team>();
@@ -38,23 +36,26 @@ List<Individual> individualList=new ArrayList<Individual>();
      * 
      * @return 
      */
-    public void getList()
+
+    
+    public List<Individual> getListOfIndividuals()
     {
-    	
+	
     	try {
     		individualList.clear();
 			obj=parser.parse(new FileReader("C:/Users/pranjalijaiswal/git/assignment-resource-io/src/main/resources/db.json"));
 			JSONObject jsonobj=(JSONObject)obj;
     		arr=(JSONArray) jsonobj.get("individuals");
-    		//System.out.println(arr);
-    		//System.out.println();
-		} catch (FileNotFoundException e) {
+		    }
+    	catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} catch (IOException e) {
+		} 
+    	catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} catch (ParseException e) {
+		} 
+    	catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
@@ -68,20 +69,10 @@ List<Individual> individualList=new ArrayList<Individual>();
 		for (int i = 0; i < arr.size(); i++) 
 		{
 			ob = (JSONObject) arr.get(i);
-			//System.out.println(ob);
 			map = (Map<String, Object>) ob.clone();
-			//System.out.println(map);
 			Individual individual = new Individual(map);
-			//System.out.println(individual.toString());
 			individualList.add(individual);    		
 		}
-    }
-    
-    public List<Individual> getListOfIndividuals()
-    {
-    	
-    		
-    		getList();
     		return individualList;
 
     	}
@@ -190,9 +181,8 @@ List<Individual> individualList=new ArrayList<Individual>();
      * 
      * @return 
      */
-    public List<Team> getListOfTeams(){
-    	
-  
+    public List<Team> getListOfTeams()
+    {  	
     		teamlist.clear();
 			try {
 				obj=parser.parse(new FileReader("C:/Users/pranjalijaiswal/git/assignment-resource-io/src/main/resources/db.json"));
@@ -213,52 +203,11 @@ List<Individual> individualList=new ArrayList<Individual>();
     		for (int i = 0; i < arr.size(); i++) 
     		{
     			ob = (JSONObject) arr.get(i);
-    			//System.out.println(ob);
     			map = (Map<String, Object>) ob.clone();
-    			//System.out.println(map);
     			Team team=new Team(map);
-    			//System.out.println(individual.toString());
     			teamlist.add(team);    		
     		}
     		
-    		//System.out.println(teamlist.size());
-    		//System.out.println();
     		return teamlist;
-
-    }
-    public List<Individual> get_active_team()
-    {
-    individualList.clear();
-    {
-    	teamlist.clear();
-    	List<Individual> actual = null;
-    	if(this.getListOfTeams()==null)
-    		this.getListOfTeams();
-
-    		 for(int i=0;i<teamlist.size();i++)
-             {
-                actual=teamlist.get(i).getMembers();
-                for(int k=0;k<actual.size();k++)
-                {
-                	for(int p=0;p<individualList.size();p++)
-                	{
-                		if(individualList.get(p).getId()==actual.get(k).getId())
-                		{
-                			if(individualList.get(p).isActive())
-                			{
-                				activeteamlist.add(individualList.get(p));
-                			}
-                		}
-                	}
-                }
-             }
-    		 return activeteamlist;
-    }
-                	
-                
-    		 //System.out.println(actual);
-    		// System.out.println(expected);
-    		
-    		 
     }
 }
