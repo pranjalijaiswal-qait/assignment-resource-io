@@ -11,20 +11,20 @@ import org.testng.annotations.Test;
  *
  * @author Ramandeep
  */
-public class TeamsJsonReaderTest {
+public class TeamsYamlReaderTest {
     
-    TeamsJsonReader teamReader;
+    TeamsYamlReader teamReader;
     
     @BeforeTest
     public void loadDB(){
-        teamReader = new TeamsJsonReader();
+        teamReader = new TeamsYamlReader();
     }
     
     @Test
     public void getListOfIndividuals_should_return_array_list_of_all_individual_objects()
             throws IOException{
         
-       assertThat(teamReader.getListOfIndividuals().size()).isEqualTo(5);
+        assertThat(teamReader.getListOfIndividuals().size()).isEqualTo(5);
         assertThat(teamReader.getListOfIndividuals().get(0).getName())
                 .isEqualTo("John Doe");
         assertThat(teamReader.getListOfIndividuals().get(4).getId())
@@ -38,7 +38,7 @@ public class TeamsJsonReaderTest {
     @Test
     public void getListOfActiveIndividuals_ahould_return_array_list_of_only_active_individual_objects(){
         
-        assertThat(teamReader.getListOfActiveIndividuals().size()).isEqualTo(4);
+        assertThat(teamReader.getListOfActiveIndividuals().size()).isEqualTo(3);
         for(Individual individual:teamReader.getListOfActiveIndividuals()){
             assertThat(individual.isActive()).isTrue();
         }
@@ -47,7 +47,7 @@ public class TeamsJsonReaderTest {
     @Test
     public void getListOfInactiveIndividuals_should_return_array_list_of_only_inactive_individual_objects(){
         
-        assertThat(teamReader.getListOfInactiveIndividuals().size()).isEqualTo(1);
+        assertThat(teamReader.getListOfInactiveIndividuals().size()).isEqualTo(2);
         for(Individual individual:teamReader.getListOfInactiveIndividuals()){
             assertThat(individual.isActive()).isFalse();
         }
@@ -62,7 +62,7 @@ public class TeamsJsonReaderTest {
                 .isEqualTo("Mark Twain");
     }
     
-    @Test(expectedExceptions = ObjectNotFoundException.class)
+    @Test(expectedExceptions = ObjectNotFoundException.class, expectedExceptionsMessageRegExp="Individual Object with id=100 not found")
     public void getIndividualById_should_throw_ObjectNotFoundException_for_incorrect_id()
             throws ObjectNotFoundException{
         
@@ -78,7 +78,7 @@ public class TeamsJsonReaderTest {
                 .isEqualTo(1203);
     }
     
-    @Test(expectedExceptions = ObjectNotFoundException.class)
+    @Test(expectedExceptions = ObjectNotFoundException.class, expectedExceptionsMessageRegExp="Individual Object with Name=Individual By This Name Does Not Exist not found")
     public void getIndividualByName_should_throw_ObjectNotFoundException_for_incorrect_name()
             throws ObjectNotFoundException{
         
@@ -93,7 +93,7 @@ public class TeamsJsonReaderTest {
         assertThat(teamReader.getListOfTeams().get(0).getName())
                 .isEqualTo("Kino");
         assertThat(teamReader.getListOfTeams().get(0).getMembers().size())
-                .isEqualTo(3);
+                .isEqualTo(2);
         assertThat(teamReader.getListOfTeams().get(1).getId()).isEqualTo(1002);
         assertThat(teamReader.getListOfTeams().get(1).getName())
                 .isEqualTo("B V Hammersmark");
@@ -106,18 +106,18 @@ public class TeamsJsonReaderTest {
         assertThat(teamReader.getListOfTeams().get(0).getActiveMembers().size())
                 .isEqualTo(2);
         assertThat(teamReader.getListOfTeams().get(1).getActiveMembers().size())
-                .isEqualTo(3);
+                .isEqualTo(2);
     }
     
     @Test
     public void Team_getInactiveMembers_should_return_a_list_of_individual_team_members_that_are_inactive(){
         assertThat(teamReader.getListOfTeams().get(0).getInactiveMembers()
-                .size()).isEqualTo(1);
-        assertThat(teamReader.getListOfTeams().get(0).getInactiveMembers()
-                .get(0).getName()).isEqualTo("Mark Twain");
+                .size()).isEqualTo(0);
         
         assertThat(teamReader.getListOfTeams().get(1).getInactiveMembers()
-                .size()).isEqualTo(0);
+                .size()).isEqualTo(1);
+        assertThat(teamReader.getListOfTeams().get(1).getInactiveMembers()
+                .get(0).getName()).isEqualTo("Duck Dodgers");
     }
     
 }
