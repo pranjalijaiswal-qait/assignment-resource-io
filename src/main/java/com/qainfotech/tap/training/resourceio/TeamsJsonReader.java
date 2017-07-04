@@ -43,7 +43,7 @@ public class TeamsJsonReader{
 	
     	try {
     		individualList.clear();
-			obj=parser.parse(new FileReader("C:/Users/pranjalijaiswal/git/assignment-resource-io/src/main/resources/db.json"));
+			obj=parser.parse(new FileReader("C:/Users/prakhersrivastava/git/assignment-resource-io/src/main/resources/db.json"));
 			JSONObject jsonobj=(JSONObject)obj;
     		arr=(JSONArray) jsonobj.get("individuals");
 		    }
@@ -185,7 +185,7 @@ public class TeamsJsonReader{
     {  	
     		teamlist.clear();
 			try {
-				obj=parser.parse(new FileReader("C:/Users/pranjalijaiswal/git/assignment-resource-io/src/main/resources/db.json"));
+				obj=parser.parse(new FileReader("C:/Users/prakhersrivastava/git/assignment-resource-io/src/main/resources/db.json"));
 			} catch (FileNotFoundException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

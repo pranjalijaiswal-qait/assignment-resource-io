@@ -19,7 +19,7 @@ public class PropertiesOptionsIO{
     {
     	try
     	{
-    	input=new FileInputStream("C:/Users/pranjalijaiswal/git/assignment-resource-io/src/main/resources/options.properties");
+    	input=new FileInputStream("C:/Users/prakhersrivastava/git/assignment-resource-io/src/main/resources/options.properties");
     	prop.load(input);
         return  (Object)prop.getProperty(optionKey);
     	}
