@@ -31,7 +31,7 @@ public class TeamsYamlReader{
     Map<String,ArrayList> subvalues;
     List<Individual> activeList=new ArrayList<Individual>();
     List<Individual> nonActiveList=new ArrayList<Individual>();
-
+    List<Team> teamList = new ArrayList<>();
     public List<Individual> getListOfIndividuals()
     {
     	 try{
@@ -167,7 +167,35 @@ public class TeamsYamlReader{
      * 
      * @return 
      */
-    public List<Team> getListOfTeams(){
-        throw new UnsupportedOperationException("Not implemented.");
+    @SuppressWarnings("unchecked")
+	public List<Team> getListOfTeams()
+    {
+    	try{
+   		 teamList.clear();
+   	     subvalues = (Map<String, ArrayList>) yaml.load(new FileInputStream(new File("src/main/resources/db.yaml")));
+   	     }
+   	 catch (FileNotFoundException e)
+   	 {
+   	             // TODO Auto-generated catch block
+   	  e.printStackTrace();
+   	 }
+   	         Team team;
+   	         Map<String , Object> map = new HashMap<>();
+   	         ArrayList teams= (ArrayList) subvalues.get("teams");
+   	         for (int index = 0; index < teams.size(); index++)
+   	         {
+   	             Map team_yaml = (Map<String, ArrayList>)teams.get(index);
+   	             int id = (Integer)team_yaml.get("id");
+   	             map.put("id", id);
+   	             String name=(String)team_yaml.get("name");
+   	             map.put("name", name);
+   	             List<Individual> members=(List<Individual>) team_yaml.get("members");
+   	             map.put("members", members);
+   	             team=new Team(map);
+   	             teamList.add(team);
+
+   	         }
+
+   	         return teamList;
     }
 }

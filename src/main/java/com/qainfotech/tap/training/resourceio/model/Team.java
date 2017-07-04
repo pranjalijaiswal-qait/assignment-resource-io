@@ -23,23 +23,8 @@ public class Team {
     public Team(Map<String, Object> teamMap){
     	this.name=(String)teamMap.get("name");
 		this.id=Integer.parseInt((String)teamMap.get("id").toString());
-		this.members=new ArrayList<Individual>();
+		this.members=(List<Individual>) teamMap.get("members");
 		
-		JSONArray object=(JSONArray)teamMap.get("members");
-		List<Individual> list=ob.getListOfIndividuals();
-		Iterator<Individual> iterator=list.iterator();
-		while(iterator.hasNext())
-		{
-			Individual ind=iterator.next();
-			for(int i=0;i<object.size();i++)
-			{
-				if(ind.getId()==Integer.parseInt(object.get(i).toString()))
-				{
-					this.members.add(ind);
-				}
-			}
-			
-		}
     }
     
     /**
@@ -76,9 +61,8 @@ public class Team {
      */
     public List<Individual> getActiveMembers()
     {
-    	
     	List<Individual> activeList=new ArrayList<Individual>();
-    	  Iterator<Individual> itr=this.members.iterator();
+    	 Iterator<Individual> itr=this.members.iterator();
           while(itr.hasNext()){
 
               Individual individual=itr.next();
@@ -101,9 +85,10 @@ public class Team {
     {
      List<Individual> nonactiveList=new ArrayList<Individual>();
   	  Iterator<Individual> itr=this.members.iterator();
-        while(itr.hasNext()){
-
-            Individual individual=itr.next();
+  	  Individual individual;
+        while(itr.hasNext())
+        {
+        	individual=itr.next();
             if(!(individual.isActive()))
             {
                 nonactiveList.add(individual);

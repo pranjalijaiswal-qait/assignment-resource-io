@@ -27,7 +27,7 @@ public class TeamsJsonReader{
 	List<Individual> individualList=new ArrayList<Individual>();
     List<Individual> active_individuals=new ArrayList<Individual>();
     List<Individual> non_active_individuals=new ArrayList<Individual>();
-    List<Team> teamlist=new ArrayList<Team>();
+    static List<Team> teamlist=new ArrayList<Team>();
     List<Individual> activeteamlist=new ArrayList<Individual>();
     JSONArray arr;
     
@@ -88,15 +88,12 @@ public class TeamsJsonReader{
      */
     public Individual getIndividualById(Integer id) throws ObjectNotFoundException
     {
-    	individualList.clear();
-    	if(this.getListOfIndividuals()==null)
-    		this.getListOfIndividuals();
-
-    		 for(int i=0;i<individualList.size();i++)
+    	     List<Individual> ind=getListOfIndividuals();
+    		 for(int i=0;i<ind.size();i++)
              {
-                 if(individualList.get(i).getId()==(int)id)
+                 if(ind.get(i).getId()==(int)id)
                  {
-                	 return(individualList.get(i));
+                	 return(ind.get(i));
                  }
                     
              }
@@ -180,11 +177,13 @@ public class TeamsJsonReader{
      * get a list of team objects from db json
      * 
      * @return 
+     * @throws ObjectNotFoundException 
      */
-    public List<Team> getListOfTeams()
+    public List<Team> getListOfTeams() throws ObjectNotFoundException
     {  	
-    		teamlist.clear();
+    	
 			try {
+				teamlist.clear();
 				obj=parser.parse(new FileReader("C:/Users/prakhersrivastava/git/assignment-resource-io/src/main/resources/db.json"));
 			} catch (FileNotFoundException e) {
 				// TODO Auto-generated catch block
@@ -200,14 +199,28 @@ public class TeamsJsonReader{
     		arr=(JSONArray) jsonobj.get("teams");
     		JSONObject ob;
     		Map<String, Object> map;
+    		JSONArray ar=new JSONArray();
+    		
     		for (int i = 0; i < arr.size(); i++) 
     		{
+    			ArrayList<Individual> teamjson=new ArrayList<>();
     			ob = (JSONObject) arr.get(i);
+    			//System.out.println(ob);
     			map = (Map<String, Object>) ob.clone();
+    			//System.out.println(map);
+    			ar=(JSONArray) ob.get("members");
+    			TeamsJsonReader reader = new TeamsJsonReader();
+    			for(int index=0;index<ar.size();index++)
+    			{
+    				int j=Integer.parseInt(ar.get(index).toString());
+    				teamjson.add(reader.getIndividualById(j));
+    			}
+    			map.put("members",teamjson);
     			Team team=new Team(map);
     			teamlist.add(team);    		
     		}
-    		
+    	
     		return teamlist;
     }
+   
 }
