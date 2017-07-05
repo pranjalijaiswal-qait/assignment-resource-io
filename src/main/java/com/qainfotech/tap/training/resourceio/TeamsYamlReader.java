@@ -48,7 +48,7 @@ public class TeamsYamlReader{
     	         ArrayList ind= (ArrayList) subvalues.get("individuals");
     	         for (int index = 0; index < ind.size(); index++)
     	         {
-
+    	        	 ArrayList<Individual> teamjson=new ArrayList<>();
     	             Map individuals = (Map<String, ArrayList>)ind.get(index);
     	             int id = (Integer)individuals.get("id");
     	             map.put("id", id);
@@ -166,9 +166,10 @@ public class TeamsYamlReader{
      * get a list of team objects from db yaml
      * 
      * @return 
+     * @throws ObjectNotFoundException 
      */
-    @SuppressWarnings("unchecked")
-	public List<Team> getListOfTeams()
+  
+	public List<Team> getListOfTeams() throws ObjectNotFoundException
     {
     	try{
    		 teamList.clear();
@@ -182,15 +183,29 @@ public class TeamsYamlReader{
    	         Team team;
    	         Map<String , Object> map = new HashMap<>();
    	         ArrayList teams= (ArrayList) subvalues.get("teams");
+   	         System.out.println(teams);
+   	         System.out.println(teams.size());
+   	         TeamsJsonReader ob=new TeamsJsonReader();
    	         for (int index = 0; index < teams.size(); index++)
    	         {
+   	        	 ArrayList<Individual> individual=new ArrayList<>();
    	             Map team_yaml = (Map<String, ArrayList>)teams.get(index);
-   	             int id = (Integer)team_yaml.get("id");
+   	             System.out.println(team_yaml);
+   	             int id = (Integer) team_yaml.get("id");
    	             map.put("id", id);
    	             String name=(String)team_yaml.get("name");
    	             map.put("name", name);
-   	             List<Individual> members=(List<Individual>) team_yaml.get("members");
-   	             map.put("members", members);
+   	             System.out.println(map);
+   	             ArrayList members=(ArrayList) team_yaml.get("members");
+   	             System.out.println(members);
+   	             for(int sub=0;sub<members.size();sub++)
+   	             {
+   	            	int j=(int) members.get(sub);
+   	            	System.out.println(j);
+    				individual.add(this.getIndividualById(j));
+   	             }
+   	             map.put("members", individual);
+   	             System.out.println(map);
    	             team=new Team(map);
    	             teamList.add(team);
 

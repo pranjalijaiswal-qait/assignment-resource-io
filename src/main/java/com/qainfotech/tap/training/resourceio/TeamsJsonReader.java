@@ -27,7 +27,7 @@ public class TeamsJsonReader{
 	List<Individual> individualList=new ArrayList<Individual>();
     List<Individual> active_individuals=new ArrayList<Individual>();
     List<Individual> non_active_individuals=new ArrayList<Individual>();
-    static List<Team> teamlist=new ArrayList<Team>();
+    public static List<Team> teamlist=new ArrayList<Team>();
     List<Individual> activeteamlist=new ArrayList<Individual>();
     JSONArray arr;
     

@@ -61,6 +61,7 @@ public class Team {
      */
     public List<Individual> getActiveMembers()
     {
+    	ob.teamlist.clear();
     	List<Individual> activeList=new ArrayList<Individual>();
     	 Iterator<Individual> itr=this.members.iterator();
           while(itr.hasNext()){
@@ -83,6 +84,7 @@ public class Team {
      */
     public List<Individual> getInactiveMembers()
     {
+    	ob.teamlist.clear();
      List<Individual> nonactiveList=new ArrayList<Individual>();
   	  Iterator<Individual> itr=this.members.iterator();
   	  Individual individual;
